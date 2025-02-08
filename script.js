@@ -16,4 +16,32 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".chart-btn").addEventListener("click", function () {
         window.open("https://dexscreener.com", "_blank");
     });
+
+    // Button Copy Wallet Address
+    document.getElementById("copyButton").addEventListener("click", function () {
+        const walletText = document.querySelector(".wallet-addres p").textContent;
+        navigator.clipboard.writeText(walletText).then(() => {
+            // Buat elemen toast
+            let toast = document.createElement("div");
+            toast.textContent = "Address copied to clipboard";
+            toast.style.position = "fixed";
+            toast.style.bottom = "20px";
+            toast.style.left = "50%";
+            toast.style.transform = "translateX(-50%)";
+            toast.style.backgroundColor = "#333";
+            toast.style.color = "#fff";
+            toast.style.padding = "10px 20px";
+            toast.style.borderRadius = "5px";
+            toast.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
+            toast.style.zIndex = "1000";
+            document.body.appendChild(toast);
+
+            // Hapus toast setelah 2 detik
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 2000);
+        }).catch(err => {
+            console.error("Error copying text: ", err);
+        });
+    });
 });

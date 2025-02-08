@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navigator.clipboard.writeText(walletText).then(() => {
             // Buat elemen toast
             let toast = document.createElement("div");
-            toast.textContent = "Address copied to clipboard";
+             toast.textContent = "Address copied to clipboard you can paste it on dexscreener.com";
             toast.style.position = "fixed";
             toast.style.bottom = "20px";
             toast.style.left = "50%";

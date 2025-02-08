@@ -1,4 +1,43 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
+     // Prevent pinch zoom on touch devices
+     document.addEventListener('touchmove', function(event) {
+        if (event.scale !== 1) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    // Prevent double-tap zoom
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, { passive: false });
+
+    // Prevent zoom on desktop (Ctrl + mouse wheel)
+    document.addEventListener('wheel', function(event) {
+        if (event.ctrlKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    // Prevent zoom on desktop (Ctrl + "+"/"-" keys)
+    document.addEventListener('keydown', function(event) {
+        if (event.ctrlKey && (event.key === '+' || event.key === '-' || event.key === '=')) {
+            event.preventDefault();
+        }
+    });
+
+    // Prevent zoom on desktop (Ctrl + mouse wheel in Firefox)
+    document.addEventListener('DOMMouseScroll', function(event) {
+        if (event.ctrlKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
     // Button 1: Scroll ke Content Card
     document.querySelector(".btn1").addEventListener("click", function () {
         const contentCard = document.querySelector(".wallet-addres");
@@ -23,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navigator.clipboard.writeText(walletText).then(() => {
             // Buat elemen toast
             let toast = document.createElement("div");
-             toast.textContent = "Address copied to clipboard you can paste it on dexscreener.com";
+            toast.textContent = "Address copied to clipboard you can paste it on dexscreener.com";
             toast.style.position = "fixed";
             toast.style.bottom = "20px";
             toast.style.left = "50%";
@@ -43,5 +82,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }).catch(err => {
             console.error("Error copying text: ", err);
         });
+    });
+
+    // Mencegah Zoom Out di Desktop (Ctrl + Scroll atau Ctrl + "+" / "-")
+    document.addEventListener("wheel", function(event) {
+        if (event.ctrlKey) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    document.addEventListener("keydown", function(event) {
+        if (event.ctrlKey && (event.key === "+" || event.key === "-")) {
+            event.preventDefault();
+        }
     });
 });

@@ -430,11 +430,12 @@ body {
     }
 @media screen and (max-width: 768px) {
     .wallet-addres {
-        width: 90%;
-        transform: translate(-95%, -50%);
+        width: 85%;
+        transform: translate(-15%, -50%); /* Reduced negative translation */
         font-size: clamp(12px, 1.8vw, 14px);
         padding: 4px 8px;
         min-height: 28px;
+        margin-left: 15%; /* Add margin to prevent cutoff */
     }
 
     .wallet-addres h1 {
@@ -450,12 +451,13 @@ body {
 /* Mobile Devices */
 @media screen and (max-width: 480px) {
     .wallet-addres {
-        width: 95%;
-        transform: translate(-97%, -50%);
+        width: 80%;
+        transform: translate(0%, -50%); /* Remove horizontal translation */
         font-size: clamp(11px, 1.6vw, 13px);
         padding: 3px 6px;
         min-height: 26px;
         border-radius: 15px;
+        margin-left: 10%; /* Adjust margin for mobile */
     }
 
     .wallet-addres h1 {
@@ -467,7 +469,5 @@ body {
         font-size: 1em;
         border-radius: 6px;
     }
-
-}   
-    
+}
 

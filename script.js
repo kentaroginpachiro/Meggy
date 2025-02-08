@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Button 1: Scroll ke Content Card
     document.querySelector(".btn1").addEventListener("click", function () {
-        const contentCard = document.querySelector(".content-card");
+        const contentCard = document.querySelector(".wallet-addres");
         if (contentCard) {
             contentCard.scrollIntoView({ behavior: "smooth" });
         }

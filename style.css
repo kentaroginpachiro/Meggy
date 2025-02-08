@@ -204,7 +204,7 @@ body {
 /* Social Button */
 .social-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 30px;
     right: 20px;
     cursor: pointer;
     transition: transform 0.3s ease;

@@ -457,6 +457,7 @@
         @media screen and (max-width: 480px) {
             .wallet-addres {
                 width: 90%;
+                  left: 40%;
                 max-width: 350px;
                 font-size: clamp(11px, 1.6vw, 13px);
                 padding: 3px 6px;

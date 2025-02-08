@@ -137,70 +137,6 @@ body {
 }
 
 /* Teks dalam Content Card */
-.fill1 {
-    position: absolute;
-    top: 75%;
-    left: 25%;
-    transform: translate(-90%, -50%);
-    color: white;
-    font-size: clamp(14px, 2vw, 15px);
-    width: 80%;
-    text-align: left;
-    
-    /* Membuat teks tetap dalam satu baris */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 35ch;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    padding: 5px 10px;
-    transition: all 0.3s ease-in-out;
-    
-
-    min-height: 30px; /* Sesuaikan tinggi jika diperlukan */
-    display: flex;
-    align-items: center; /* Menjaga teks tetap sejajar */
-}
-
-/* Saat hover, tampilkan teks penuh */
-.fill1 {
-    position: absolute;
-    top: 75%;
-    left: 45%;
-    transform: translate(-90%, -50%);
-    color: white;
-    font-size: clamp(14px, 2vw, 15px);
-    width: 80%;
-    text-align: left;
-    
-    /* Membuat teks tetap dalam satu baris */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 35ch;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    padding: 5px 10px;
-    transition: all 0.3s ease-in-out;
-
-    min-height: 30px; /* Sesuaikan tinggi jika diperlukan */
-    display: flex;
-    align-items: center; /* Menjaga teks tetap sejajar */
-}
-
-/* Saat hover, tampilkan teks penuh */
-.fill1:hover {
-    position: absolute;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    max-width: max-content; /* Biarkan lebar mengikuti konten */
-    background: rgba(0, 0, 0, 0.8); /* Warna lebih gelap */
-    padding: 10px;
-    border-radius: 20px;
-    z-index: 1000; /* Pastikan elemen ini berada di atas */
-}
 
 
 
@@ -258,12 +194,7 @@ body {
         transform: translateX(-4vw);
     }
 
-    .fill1 {
-        font-size: 12px;
-        width: 70%;
-        left: 55%;
-        transform: translate(-50%, -50%);
-    }
+    
 
     .character2 {
         width: 150%;
@@ -294,12 +225,8 @@ body {
 
     }
 
-    .fill1 {
-        font-size: 12px;
-        width: 65%;
-        left: 50%;
-        transform: translate(-45%, -50%);
-    }
+   
+    
 
     .character2 {
         width: 120%;
@@ -314,10 +241,10 @@ body {
         bottom: 5%;
         transform: translateX(0);
     }
-    .social-btn:hover {
-        transform: scale(1.2); /* Tetap di posisi & zoom in */
-    }
 
+    .social-btn:hover {
+        transform: scale(1.4); /* Tetap di posisi & zoom in */
+    }
 }
 
 
@@ -352,10 +279,7 @@ body {
         width: 150%;
     }
 
-    .fill1 {
-        width: 90%;
-        left: 50%;
-    }
+   
 }
 
 @media screen and (max-width: 480px) {
@@ -381,9 +305,7 @@ body {
         width: 95%;
     }
 
-    .fill1 {
-        font-size: 14px;
-    }
+    
 }
 
 /* Animations tetap sama */

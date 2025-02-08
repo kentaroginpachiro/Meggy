@@ -1,44 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-
-
-     // Prevent pinch zoom on touch devices
-     document.addEventListener('touchmove', function(event) {
-        if (event.scale !== 1) {
-            event.preventDefault();
-        }
-    }, { passive: false });
-
-    // Prevent double-tap zoom
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', function(event) {
-        const now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, { passive: false });
-
-    // Prevent zoom on desktop (Ctrl + mouse wheel)
-    document.addEventListener('wheel', function(event) {
-        if (event.ctrlKey) {
-            event.preventDefault();
-        }
-    }, { passive: false });
-
-    // Prevent zoom on desktop (Ctrl + "+"/"-" keys)
-    document.addEventListener('keydown', function(event) {
-        if (event.ctrlKey && (event.key === '+' || event.key === '-' || event.key === '=')) {
-            event.preventDefault();
+    // Button 1: Scroll ke Content Card
+    document.querySelector(".btn1").addEventListener("click", function () {
+        const contentCard = document.querySelector(".wallet-addres");
+        if (contentCard) {
+            contentCard.scrollIntoView({ behavior: "smooth" });
         }
     });
-
-    // Prevent zoom on desktop (Ctrl + mouse wheel in Firefox)
-    document.addEventListener('DOMMouseScroll', function(event) {
-        if (event.ctrlKey) {
-            event.preventDefault();
-        }
-    }, { passive: false });
-
 
     // Button 2: Redirect ke akun X (Twitter)
     document.querySelector(".social-btn").addEventListener("click", function () {
@@ -78,16 +45,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Mencegah Zoom Out di Desktop (Ctrl + Scroll atau Ctrl + "+" / "-")
+    // Prevent zoom on desktop (Ctrl + Scroll)
     document.addEventListener("wheel", function(event) {
         if (event.ctrlKey) {
             event.preventDefault();
         }
     }, { passive: false });
 
+    // Prevent zoom on desktop (Ctrl + "+" / "-")
     document.addEventListener("keydown", function(event) {
-        if (event.ctrlKey && (event.key === "+" || event.key === "-")) {
+        if (event.ctrlKey && (event.key === "+" || event.key === "-" || event.key === "=")) {
             event.preventDefault();
         }
+    });
+
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+        easing: 'ease-in-out',
     });
 });

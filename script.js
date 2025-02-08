@@ -38,13 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
         }
     }, { passive: false });
-    // Button 1: Scroll ke Content Card
-    document.querySelector(".btn1").addEventListener("click", function () {
-        const contentCard = document.querySelector(".wallet-addres");
-        if (contentCard) {
-            contentCard.scrollIntoView({ behavior: "smooth" });
-        }
-    });
+
 
     // Button 2: Redirect ke akun X (Twitter)
     document.querySelector(".social-btn").addEventListener("click", function () {

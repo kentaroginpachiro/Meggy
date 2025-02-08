@@ -428,5 +428,46 @@ body {
         border-radius: 8px;
         box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan */
     }
+@media screen and (max-width: 768px) {
+    .wallet-addres {
+        width: 90%;
+        transform: translate(-95%, -50%);
+        font-size: clamp(12px, 1.8vw, 14px);
+        padding: 4px 8px;
+        min-height: 28px;
+    }
+
+    .wallet-addres h1 {
+        font-size: 1.8em;
+    }
+
+    .wallet-addres p {
+        padding: 8px 12px;
+        font-size: 1.1em;
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 480px) {
+    .wallet-addres {
+        width: 95%;
+        transform: translate(-97%, -50%);
+        font-size: clamp(11px, 1.6vw, 13px);
+        padding: 3px 6px;
+        min-height: 26px;
+        border-radius: 15px;
+    }
+
+    .wallet-addres h1 {
+        font-size: 1.6em;
+    }
+
+    .wallet-addres p {
+        padding: 6px 10px;
+        font-size: 1em;
+        border-radius: 6px;
+    }
+
+}   
     
 

@@ -1,0 +1,442 @@
+/* Base styles */
+body {
+    background: url('asset/Background 1.png') repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px; /* Tambah padding untuk layar kecil */
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+    animation: fadeInScaleUp 0.8s ease-in-out forwards;
+}
+
+.water-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 2400px;
+    height: auto;
+    aspect-ratio: 1800/800; /* Mempertahankan rasio aspek */
+    z-index: 1;
+}
+
+.water-overlay img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    animation: fadeInScaleUpWater 1.5s ease-in-out forwards,
+               waveAnimation 2s infinite ease-in-out;
+}
+
+.gelembung {
+    position: absolute;
+    bottom:48%;
+    z-index: 1;
+    opacity: 0;
+    width: 4vw; /* Ukuran relatif terhadap viewport */
+    min-width: 20px; /* Ukuran minimum */
+    max-width: 40px; /* Ukuran maximum */
+    animation: muncul 0s linear forwards,
+               mengambang 5s linear infinite;
+}
+
+.gelembung img {
+    width: 100%;
+    height: auto;
+}
+
+/* Posisi gelembung responsive */
+.gelembung:nth-child(2) { left: 20%; animation-delay: 1s; }
+.gelembung:nth-child(3) { left: 40%; animation-delay: 2s; }
+.gelembung:nth-child(4) { left: 60%; animation-delay: 3s; }
+.gelembung:nth-child(5) { left: 80%; animation-delay: 4s; }
+.gelembung:nth-child(6) { left: 30%; animation-delay: 5s; }
+.gelembung:nth-child(7) { left: 70%; animation-delay: 6s; }
+.gelembung:nth-child(8) { left: 25%; animation-delay: 7s; }
+.gelembung:nth-child(9) { left: 85%; animation-delay: 8s; }
+.gelembung:nth-child(10) { left: 15%; animation-delay: 9s; }
+
+.btn1 {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 30vw; /* Ukuran relatif terhadap viewport */
+    max-width: 200px; /* Ukuran maximum */
+}
+
+.btn1:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.btn1 img {
+    width: 100%;
+    height: auto;
+}
+
+/* Content Section */
+/* Base Content Styling */
+.content {
+    position: relative;
+    padding: 5vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    
+}
+
+/* Content Card */
+.content-card {
+    position: relative; /* Pastikan parent tetap relative */
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Gambar dalam Content Card */
+.content-card .content-card-img {
+    position: relative; 
+    width: 100%;
+    height: auto;
+    transform: translateX(-15vw);
+}
+
+/* Teks dalam Content Card */
+.fill1 {
+    position: absolute;
+    top: 75%;
+    left: 55%;
+    transform: translate(-90%, -50%);
+    color: white;
+    font-size: clamp(16px, 2.5vw, 27px);
+    width: 80%;
+    text-align: left;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30ch;
+  
+    background: rgba(0, 0, 0, 0.2); /* Lebih gelap saat di-hover untuk kontras */
+    padding: 1px;
+    border-radius: 8px;
+}
+
+.fill1 p {
+    content: " ... read more";
+    display: inline; /* Supaya teks tetap dalam satu baris */
+    position: relative;
+}
+
+
+
+.fill1:hover {
+    overflow: visible; /* Mengizinkan teks terlihat penuh */
+    white-space: normal; /* Mengizinkan teks wrap */
+    max-width: none; /* Hilangkan batasan lebar */
+    height: auto; /* Biarkan tinggi menyesuaikan dengan teks */
+    background: rgba(0, 0, 0, 0.3); /* Lebih gelap saat di-hover untuk kontras */
+    padding: 10px 20px; /* Tambahkan padding agar lebih nyaman dibaca */
+    border-radius: 2px;
+}
+
+
+
+
+/* Karakter */
+@keyframes shake {
+    0% { transform: rotate(3deg); }
+    25% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(3deg); }
+}
+
+.character2 {
+    position: absolute;
+    left: 7.5%;
+    bottom: -5vh;
+    width: 187.5%;
+    animation: shake 0.5s ease-in-out infinite;
+    animation-duration: 1.5s; /* 0.5s animasi + 1s jeda */
+    animation-iteration-count: infinite;
+}
+
+.character2 img {
+    width: 100%;
+    height: auto;
+}
+/* Social Button */
+.social-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 35%;
+    max-width: 200px;
+    transform: translateX(-38vw);
+    transform-origin: center;
+    left: -25%;
+}
+
+/* Hover effect tetap pada tempatnya */
+.social-btn:hover {
+    transform: translateX(-42vw) scale(1.7);
+}
+
+.social-btn img {
+    width: 150%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .content-card .content-card-img {
+        width: 80%;
+        transform: translateX(-7vw);
+    }
+
+    .fill1 {
+        font-size: 12px;
+        width: 70%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+    }
+
+    .character2 {
+        width: 150%;
+        left: 10%;
+    }
+
+    .social-btn {
+        width: 20%;
+        max-width: 80px;
+        position: absolute;
+        left: 5%; /* Geser ke kiri */
+        transform: translateX(0);
+    }
+
+    .social-btn:hover {
+        transform: scale(1.5); /* Tetap pada posisi & membesar */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-card .content-card-img {
+        width: 70%;
+        transform: translateX(-5vw);
+    }
+
+    .fill1 {
+        font-size: 12px;
+        width: 65%;
+        left: 50%;
+        transform: translate(-45%, -50%);
+    }
+
+    .character2 {
+        width: 120%;
+        left: 15%;
+    }
+
+    .social-btn {
+        width: 30%;
+        max-width: 100px;
+        position: absolute;
+        left: 5%; /* Geser lebih kiri */
+        transform: translateX(0);
+    }
+
+    .social-btn:hover {
+        transform: scale(1.4); /* Tetap di posisi & zoom in */
+    }
+}
+
+
+.content3, .content4, .content5, .content6 {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.content3 img, .content4 img, .content5 img, .content6 img {
+    width: 100%;
+    height: auto;
+}
+
+/* Media Queries untuk penyesuaian tambahan */
+@media screen and (max-width: 768px) {
+    .logo {
+        max-width: 80%;
+    }
+
+    .water-overlay {
+        max-width: 150%;
+    }
+
+    .btn1 {
+        width: 40vw;
+        bottom: 15%;
+    }
+
+    .character2 {
+        right: -50%;
+        width: 150%;
+    }
+
+    .fill1 {
+        width: 90%;
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        max-width: 90%;
+    }
+
+    .water-overlay {
+        max-width: 200%;
+    }
+
+    .btn1 {
+        width: 50vw;
+        bottom: 10%;
+    }
+
+    .character2 {
+        right: -25%;
+        width: 120%;
+    }
+
+    .content-card {
+        width: 95%;
+    }
+
+    .fill1 {
+        font-size: 16px;
+    }
+}
+
+/* Animations tetap sama */
+@keyframes fadeInScaleUp {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInScaleUpWater {
+    0% {
+        opacity: 0;
+        transform: scale(0.01);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes waveAnimation {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes muncul {
+    0% { opacity: 1; }
+}
+
+@keyframes mengambang {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(-100px) translateX(-10px);
+    }
+    50% {
+        transform: translateY(-200px) translateX(10px);
+    }
+    75% {
+        transform: translateY(-300px) translateX(-5px);
+    }
+    100% {
+        transform: translateY(-500px);
+        opacity: 0;
+    }
+}
+
+/* Chart Button tetap di tengah */
+.chart-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh; /* Pastikan ada jarak agar terlihat */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    min-height: 50px; /* Mencegah elemen menghilang */
+    opacity: 1 !important; /* Mencegah AOS menyembunyikan */
+}
+
+.chart-btn img {
+    width: 20vw;
+    max-width: 200px;
+    height: auto;
+}
+
+/* Hover effect tetap bekerja */
+.chart-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Memastikan elemen tetap terlihat pada mobile */
+@media screen and (max-width: 480px) {
+    .chart-btn {
+        margin-top: 10vh; /* Tambah jarak di mobile agar tidak tertutup */
+    }
+
+    .chart-btn img {
+        width: 50vw; /* Lebih besar di mobile */
+        max-width: 150px;
+    }
+}

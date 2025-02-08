@@ -140,39 +140,66 @@ body {
 .fill1 {
     position: absolute;
     top: 75%;
-    left: 55%;
+    left: 25%;
     transform: translate(-90%, -50%);
     color: white;
-    font-size: clamp(16px, 2.5vw, 27px);
+    font-size: clamp(14px, 2vw, 15px);
     width: 80%;
     text-align: left;
     
+    /* Membuat teks tetap dalam satu baris */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 30ch;
-  
-    background: rgba(0, 0, 0, 0.2); /* Lebih gelap saat di-hover untuk kontras */
-    padding: 1px;
-    border-radius: 8px;
+    max-width: 35ch;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+    
+
+    min-height: 30px; /* Sesuaikan tinggi jika diperlukan */
+    display: flex;
+    align-items: center; /* Menjaga teks tetap sejajar */
 }
 
-.fill1 p {
-    content: " ... read more";
-    display: inline; /* Supaya teks tetap dalam satu baris */
-    position: relative;
+/* Saat hover, tampilkan teks penuh */
+.fill1 {
+    position: absolute;
+    top: 75%;
+    left: 45%;
+    transform: translate(-90%, -50%);
+    color: white;
+    font-size: clamp(14px, 2vw, 15px);
+    width: 80%;
+    text-align: left;
+    
+    /* Membuat teks tetap dalam satu baris */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 35ch;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+
+    min-height: 30px; /* Sesuaikan tinggi jika diperlukan */
+    display: flex;
+    align-items: center; /* Menjaga teks tetap sejajar */
 }
 
-
-
+/* Saat hover, tampilkan teks penuh */
 .fill1:hover {
-    overflow: visible; /* Mengizinkan teks terlihat penuh */
-    white-space: normal; /* Mengizinkan teks wrap */
-    max-width: none; /* Hilangkan batasan lebar */
-    height: auto; /* Biarkan tinggi menyesuaikan dengan teks */
-    background: rgba(0, 0, 0, 0.3); /* Lebih gelap saat di-hover untuk kontras */
-    padding: 10px 20px; /* Tambahkan padding agar lebih nyaman dibaca */
-    border-radius: 2px;
+    position: absolute;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: max-content; /* Biarkan lebar mengikuti konten */
+    background: rgba(0, 0, 0, 0.8); /* Warna lebih gelap */
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 1000; /* Pastikan elemen ini berada di atas */
 }
 
 
@@ -204,31 +231,31 @@ body {
 /* Social Button */
 .social-btn {
     position: absolute;
-    bottom: 30px;
-    right: 20px;
+    bottom: 20px;
+    left: -21%; 
     cursor: pointer;
     transition: transform 0.3s ease;
     width: 35%;
     max-width: 200px;
-    transform: translateX(-38vw);
-    transform-origin: center;
-    left: -25%;
+    transform-origin: center;
+
 }
 
 /* Hover effect tetap pada tempatnya */
 .social-btn:hover {
-    transform: translateX(-42vw) scale(1.7);
+    transform: scale(1.7); /* Zoom in tanpa geser */
 }
 
 .social-btn img {
     width: 150%;
-    height: auto;
+  height: auto;
 }
 
 @media screen and (max-width: 768px) {
     .content-card .content-card-img {
-        width: 80%;
-        transform: translateX(-7vw);
+        width: 70%;
+
+        transform: translateX(-4vw);
     }
 
     .fill1 {
@@ -240,26 +267,31 @@ body {
 
     .character2 {
         width: 150%;
-        left: 10%;
+        left: 14%;
+
     }
 
     .social-btn {
-        width: 20%;
-        max-width: 80px;
+        width: 15%;
+        max-width: 60px;
         position: absolute;
-        left: 5%; /* Geser ke kiri */
+        bottom: 5%;
+        left: 6%; /* Geser sedikit ke kanan */
         transform: translateX(0);
     }
 
+
     .social-btn:hover {
-        transform: scale(1.5); /* Tetap pada posisi & membesar */
+        transform: scale(1.2); /* Tetap di posisi & membesar */
     }
+
 }
 
 @media screen and (max-width: 480px) {
     .content-card .content-card-img {
-        width: 70%;
-        transform: translateX(-5vw);
+        width: 60%;
+        transform: translateX(-2vw);
+
     }
 
     .fill1 {
@@ -275,16 +307,17 @@ body {
     }
 
     .social-btn {
-        width: 30%;
-        max-width: 100px;
+        width: 20%;
+        max-width: 50px;
         position: absolute;
-        left: 5%; /* Geser lebih kiri */
+        left: 8%; /* Geser sedikit ke kanan */
+        bottom: 5%;
         transform: translateX(0);
     }
-
     .social-btn:hover {
-        transform: scale(1.4); /* Tetap di posisi & zoom in */
-    }
+        transform: scale(1.2); /* Tetap di posisi & zoom in */
+    }
+
 }
 
 
@@ -349,7 +382,7 @@ body {
     }
 
     .fill1 {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
@@ -439,4 +472,39 @@ body {
         width: 50vw; /* Lebih besar di mobile */
         max-width: 150px;
     }
+    .wallet-addres {
+    transform: translate(-90%, -50%);
+    color: white;
+    font-size: clamp(14px, 2vw, 15px);
+    width: 80%;
+    text-align: left;
+    /* Membuat teks tetap dalam satu baris */
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+    min-height: 30px; /* Sesuaikan tinggi jika diperlukan */
+    display: flex;
+    align-items: center; /* Menjaga teks tetap sejajar */
 }
+    }
+    
+    .wallet-addres h1 {
+        font-weight: bold; /* Membuat teks tebal */
+        font-size: 2em; /* Memperbesar ukuran teks */
+        text-align: center;
+    }
+    
+    .wallet-addres p {
+        display: inline-block;
+        color: white;
+        padding: 10px 15px;
+        font-size: 1.2em; /* Memperbesar ukuran teks */
+        font-weight: bold; /* Membuat teks tebal */
+        background-color: #4c4c7b;
+        border-radius: 8px;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan */
+    }
+    
+

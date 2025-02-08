@@ -1,6 +1,6 @@
 /* Base styles */
-body {
-      touch-action: manipulation;
+    body {
+        touch-action: pan-y pinch-zoom;  /* Allows vertical scrolling but prevents zoom gestures */
         background: url('asset/Background 1.png') repeat center center fixed;
         background-size: cover;
         margin: 0;
@@ -8,15 +8,7 @@ body {
         font-family: 'Poppins', sans-serif;
         min-height: 100vh;
         overflow-x: hidden;
-        touch-action: manipulation;
-        -ms-touch-action: manipulation;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        overscroll-behavior: none;
-}
+    }
 
 /* Hero Section */
 .hero {

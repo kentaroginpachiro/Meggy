@@ -1,14 +1,35 @@
-    /* Base styles */
-    body {
-        touch-action: pan-y pinch-zoom;  /* Allows vertical scrolling but prevents zoom gestures */
-        background: url('asset/Background 1.png') repeat center center fixed;
-        background-size: cover;
-        margin: 0;
-        padding: 0;
-        font-family: 'Poppins', sans-serif;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
+
+body {
+    touch-action: pan-y pinch-zoom;
+    background: url('asset/Background 1.png') repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ADDED: Enhanced zoom prevention styles */
+html, body {
+    /* Prevent text scaling on iOS */
+    -webkit-text-size-adjust: 100%;
+    /* Prevent callout on long press */
+    -webkit-touch-callout: none;
+    /* More restrictive touch actions */
+    touch-action: manipulation;
+}
+
+/* ADDED: Prevent bounce effects that can trigger zoom */
+body {
+    overscroll-behavior: none;
+}
+
+/* ADDED: Enable text selection only where needed */
+input, textarea {
+    user-select: text;
+    -webkit-user-select: text;
+}
 
     /* Hero Section */
     .hero {

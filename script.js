@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Button 1: Scroll ke Content Card
+    // Your existing button handlers
     document.querySelector(".btn1").addEventListener("click", function () {
         const contentCard = document.querySelector(".wallet-addres");
         if (contentCard) {
@@ -7,21 +7,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Button 2: Redirect ke akun X (Twitter)
     document.querySelector(".social-btn").addEventListener("click", function () {
         window.open("https://twitter.com/your_account", "_blank");
     });
 
-    // Button 3: Redirect ke Dexscreener
     document.querySelector(".chart-btn").addEventListener("click", function () {
         window.open("https://dexscreener.com", "_blank");
     });
 
-    // Button Copy Wallet Address
+    // Your existing copy button handler
     document.getElementById("copyButton").addEventListener("click", function () {
         const walletText = document.querySelector(".wallet-addres p").textContent;
         navigator.clipboard.writeText(walletText).then(() => {
-            // Buat elemen toast
+            // Create toast element
             let toast = document.createElement("div");
             toast.textContent = "Address copied to clipboard you can paste it on dexscreener.com";
             toast.style.position = "fixed";
@@ -36,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
             toast.style.zIndex = "1000";
             document.body.appendChild(toast);
 
-            // Hapus toast setelah 2 detik
+            // Remove toast after 2 seconds
             setTimeout(() => {
                 document.body.removeChild(toast);
             }, 2000);
@@ -45,21 +43,51 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Prevent zoom on desktop (Ctrl + Scroll)
+    // Your existing zoom prevention
     document.addEventListener("wheel", function(event) {
         if (event.ctrlKey) {
             event.preventDefault();
         }
     }, { passive: false });
 
-    // Prevent zoom on desktop (Ctrl + "+" / "-")
     document.addEventListener("keydown", function(event) {
         if (event.ctrlKey && (event.key === "+" || event.key === "-" || event.key === "=")) {
             event.preventDefault();
         }
     });
 
-    // Initialize AOS
+    // ADDED: Enhanced zoom prevention for mobile devices
+    // Prevent gesture events (pinch zoom)
+    document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('gesturechange', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener('gestureend', function(e) {
+        e.preventDefault();
+    }, { passive: false });
+
+    // ADDED: Prevent touchmove scaling
+    document.addEventListener('touchmove', function(e) {
+        if (e.scale && e.scale !== 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // ADDED: Prevent double-tap zooming
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(e) {
+        const now = Date.now();
+        if (now - lastTouchEnd < 300) {
+            e.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, { passive: false });
+
+    // Initialize AOS (your existing code)
     AOS.init({
         duration: 1000,
         once: true,

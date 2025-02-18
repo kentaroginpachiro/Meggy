@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.querySelector(".social-btn").addEventListener("click", function () {
-        window.open("https://x.com/meggyytheshark?s=21", "_blank");
+        window.open("https://x.com/meggytheshark?s=21", "_blank");
     });
 
     document.querySelector(".chart-btn").addEventListener("click", function () {
